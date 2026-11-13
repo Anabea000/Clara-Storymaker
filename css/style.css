@@ -1,8 +1,7 @@
-/* Reset e Variáveis */
 :root {
-    --primary-dark: #1a2a3a; /* Azul escuro do fundo */
-    --accent-blue: #5a7a9a;  /* Azul dos botões */
-    --bg-cream: #f9f6f0;     /* Fundo bege claro */
+    --primary-dark: #1a2a3a; 
+    --accent-blue: #5a7a9a;  
+    --bg-cream: #f9f6f0;     
     --text-light: #ffffff;
     --text-dark: #333333;
     --font-serif: 'Playfair Display', serif;
@@ -34,7 +33,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 0;
+    padding: 20px 0; /* Reduzido um pouco para acomodar a logo */
     z-index: 1000;
     color: var(--text-light);
 }
@@ -45,30 +44,15 @@ body {
     align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-icon {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    border: 1px solid var(--text-light);
-    padding: 5px 10px;
-    border-radius: 50%;
-}
-
-.logo-text h1 {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    font-weight: 400;
-}
-
-.logo-text span {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
+/* Nova Logo em Imagem */
+.logo a {
     display: block;
+}
+.logo-img {
+    max-height: 80px; /* Ajuste o tamanho da sua logo aqui */
+    width: auto;
+    display: block;
+    border-radius: 50%; /* Deixa a logo redonda igual à imagem */
 }
 
 .nav-menu {
@@ -175,7 +159,7 @@ body {
     color: var(--primary-dark);
 }
 
-/* Seções */
+/* Títulos das Seções */
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -191,7 +175,6 @@ body {
     padding: 0 20px;
 }
 
-/* Linhas decorativas ao redor do título */
 .section-title::before,
 .section-title::after {
     content: '';
@@ -259,10 +242,66 @@ body {
     opacity: 0.8;
 }
 
+/* --- ESTILOS DA SEÇÃO ENSAIO FAMILIAR --- */
+.family-session {
+    padding: 100px 0;
+    background-color: #f2efe9; /* Um tom levemente diferente para destacar */
+}
+
+.family-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.family-text .section-title {
+    margin-bottom: 20px;
+}
+
+.family-quote {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.family-description {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Galeria de Fotos */
+.family-grid {
+    display: grid;
+    /* Cria colunas flexíveis. Em telas grandes mostra 3, em telas menores 2 ou 1 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.family-item {
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 4 / 5; /* Formato retrato ideal para fotos de família */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.family-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.family-item:hover img {
+    transform: scale(1.05); 
+}
+
 /* Sobre */
 .about {
     padding: 100px 0;
-    background-color: #f2efe9;
+    background-color: var(--bg-cream);
 }
 
 .about-grid {
@@ -299,7 +338,7 @@ body {
 }
 
 .handwritten {
-    font-family: 'Brush Script MT', cursive; /* Fonte manuscrita nativa */
+    font-family: 'Brush Script MT', cursive;
     font-size: 1.5rem;
     color: var(--primary-dark);
     margin-top: 30px;
@@ -318,7 +357,7 @@ body {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 colunas como no modelo */
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -397,7 +436,7 @@ body {
     .hero-title { font-size: 2.5rem; }
     .hero-buttons { flex-direction: column; align-items: flex-start; }
     .nav-menu {
-        display: none; /* Esconder no mobile, ativar via JS */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -414,5 +453,9 @@ body {
     }
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .logo-img {
+        max-height: 60px; /* Logo menor no celular */
     }
 }
